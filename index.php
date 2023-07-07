@@ -3,4 +3,11 @@ $file = "https://gist.githubusercontent.com/miisieq/379bb51bb376b2fd597d19281a7b
 
 $dataArray = array_map("str_getcsv", file($file));
 
-var_dump($dataArray);
+//name section
+$name = array_column($dataArray, 0);
+
+$nameCount = array_count_values($name);
+arsort($nameCount);
+$topNames = array_slice($nameCount, 0, 10);
+
+print_r($topNames);
