@@ -11,3 +11,21 @@ arsort($nameCount);
 $topNames = array_slice($nameCount, 0, 10);
 
 print_r($topNames);
+echo '<br>';
+
+//
+//date section (bonus)
+$date = array_column($dataArray, 1);
+
+foreach($date as $row){
+    if($row > "2000-01-01"){
+        $newRow = date("d.m.Y", strtotime($row));
+        $dateArray[] = $newRow;
+    }
+}
+
+$dateCount = array_count_values($dateArray);
+arsort($dateCount);
+$topDates = array_slice($dateCount, 0, 10);
+
+print_r($topDates);
